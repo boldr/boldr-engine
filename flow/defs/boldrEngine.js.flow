@@ -1,0 +1,75 @@
+/* @flow */
+
+declare type ConfigEnv = Object & {
+  NODE_ENV: string,
+  BOLDR_DEV_PORT: ?number,
+  BOLDR_DEBUG: ?number,
+  BOLDR_PORT: ?number,
+};
+
+declare type ConfigBundle = Object & {
+  webPath: string,
+  publicDir: stirng,
+  assetsDir: string,
+  babelrc: ?string,
+  eslintrc: ?string,
+  cssModules: ?boolean,
+  wpProfile: ?boolean,
+  srcDir: string,
+  verbose: ?boolean,
+  debug: ?boolean,
+  client: Object,
+  server: Object,
+  vendor: Array<string>,
+};
+
+declare type Config = {
+  env: ConfigEnv,
+  plugins: Array<Plugin>,
+  bundle: ConfigBundle,
+};
+
+declare interface Engine {
+  cwd: string,
+  configFileName: string,
+  plugins: Array<PluginController>,
+
+  constructor(cwd: string, configFilePath: string): void,
+  getConfigPath(): string,
+  getConfiguration(): Configuration,
+  getNodeEnv(): string,
+  build(): Promise<any>,
+  start(): Promise<any>,
+  dev(): Promise<any>,
+  restart(): Promise<any>,
+  stop(): Promise<any>,
+}
+
+declare type Plugin = (engine: Engine, runOnce: boolean) => PluginController;
+
+declare type WebpackCompiler = {
+  config: Config,
+};
+
+declare type WebpackConfig = {
+  config: Config,
+  mode: string,
+};
+
+declare type PluginController = {
+  build(): Promise<any>,
+  start(): Promise<any>,
+  dev(): Promise<any>,
+  end(): Promise<any>,
+};
+
+declare type LoggerPluginOptions = {
+  verbose: ?boolean,
+  onSuccessMessage: ?string,
+  deprecationMessage: ?string,
+  target: string,
+};
+
+declare interface LoggerPlugin {
+  options: LoggerPluginOptions,
+}

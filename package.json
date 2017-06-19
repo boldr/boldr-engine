@@ -1,0 +1,37 @@
+{
+  "name": "boldr-engine",
+  "version": "0.1.1",
+  "description": "logic engine for Boldr",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run clean && babel src --out-dir lib",
+    "clean": "rimraf lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Steven Truesdell <steven@strues.io>",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "boldr-utils": "^0.4.0-rc.1",
+    "chokidar": "^1.7.0",
+    "debug": "^2.6.8",
+    "dotenv": "^4.0.0",
+    "fs-extra": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-syntax-flow": "^6.18.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "eslint": "^4.0.0",
+    "eslint-config-boldr": "^0.10.3",
+    "fast-async": "^6.2.2",
+    "flow-bin": "^0.48.0",
+    "prettier": "^1.4.4",
+    "rimraf": "^2.6.1"
+  }
+}
